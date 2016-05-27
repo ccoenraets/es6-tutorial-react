@@ -2,7 +2,6 @@ import React from 'react';
 
 class Header extends React.Component {
 
-    // ES6: Arrow function shorthand when function consists of single line return statement
     render() {
         return (
             <header>
@@ -11,6 +10,6 @@ class Header extends React.Component {
         )
     }
 
-};
+}
 
 export default Header;
