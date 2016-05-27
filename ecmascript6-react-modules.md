@@ -1,9 +1,9 @@
 ---
 layout: module
 ---
-# 3. Creating the Header Module
+# 3. Creating a Module
 
-In this unit, you externalize the Application Header in a module.
+In this unit, you externalize the application Header in an ECMAScript 6 module.
 
 ## Step 1: Create the Header Module
 
@@ -17,15 +17,13 @@ In this unit, you externalize the Application Header in a module.
  
 1. Move the `Header` class definition from `app.js` into `Header.js`.
 
-1. At the bottom of the file, export the class as the default export:
+1. At the bottom of the file, export the class as follows:
  
     ```
     export default Header;
     ````
 
-
 ## Step 2: Use the Header Module
-
 
 1. In `app.js` make sure you removed the `Header` class definition
     
@@ -52,4 +50,3 @@ In this unit, you externalize the Application Header in a module.
 <a href="ecmascript6-react-modules-more.html" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
 </div>
 </div>
-

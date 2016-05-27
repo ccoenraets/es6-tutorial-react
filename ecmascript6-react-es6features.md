@@ -3,11 +3,13 @@ layout: module
 ---
 # 2. Using New ECMAScript 6 Features
 
-## Step 1: Use New ECMAScript 6 Features
+In this module, you modify the mortgage calculator application to use ECMAScript 6 features. In particular, you use the new ECMAScript 6 class syntax to create React components.
+
+## Step 1: Modify the Application
 
 1. Open `js/app.js` in your favorite code editor
 
-1.  Replace all `var` definitions with `let`
+1. Replace all `var` definitions with `let`
 
 1. Replace all `React.createClass()` definitions with the new ECMAScript 6 class syntax. For example:
 
@@ -17,7 +19,7 @@ layout: module
     };
     ```
     
-1. Modify all class functions to use the ECMAScript 6 syntax for class functions. Use the `render()` function below as an example:
+1. Change the class functions to use the ECMAScript 6 syntax for class functions. Use the `render()` function below as an example:
 
     ```
     class Header extends React.Component {
@@ -33,7 +35,7 @@ layout: module
     };
     ```
 
-1. In MortgageCalculator, replace `getInitialState()` with a constructor and initialize the component's state:
+1. In MortgageCalculator, replace `getInitialState()` with a **constructor** and initialize the component's state:
 
     ```
     constructor(props) {
@@ -46,16 +48,23 @@ layout: module
     }
     ```
     
-1. In the `render()` function of the `MortgageCalculator` class, bind the call to the `onChange` event handlers as follow:
+1. In the `render()` function of the `MortgageCalculator` class, bind the call to the `input` fields `onChange` event handlers as follows:
      
      ```
-     <input type="text" value={this.state.principal} 
-            onChange={this.principalChange.bind(this)}/>
+     onChange={this.principalChange.bind(this)}
+     ```
+
+     ```
+     onChange={this.yearsChange.bind(this)}
+     ```
+
+     ```
+     onChange={this.rateChange.bind(this)}
      ```
 
 1. Replace all remaining `function()` definitions with arrow functions
 
-1. Use Object Destructuring syntax when appropriate
+1. Use **object destructuring** syntax when appropriate
     
 ## Step 2: Build and Run	
 
