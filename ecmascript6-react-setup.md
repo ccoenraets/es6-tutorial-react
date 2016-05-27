@@ -3,7 +3,7 @@ layout: module
 ---
 # 1. Setting Up a React Project
 
-In this unit, you set up a development environment to develop and run an ECMAScript 6 application using Babel.
+In this unit, you set up a development environment to develop a React application using ECMAScript 6.
 
 ## Step 1: Install the Sample Application
 
@@ -37,13 +37,13 @@ In this unit, you set up a development environment to develop and run an ECMAScr
 	npm install react react-dom --save-dev
 	```
 	
-1. Type the following command to install the babel and webpack modules:
+1. Type the following command to install the **babel-core**, **babel-loader** and **webpack** modules:
 
 	```
 	npm install babel-core babel-loader webpack --save-dev
 	```
 	
-1. Type the following command to install the ECMAScript 2015 and React presets:
+1. Type the following command to install the **ECMAScript 2015** and **React** presets:
 
 	```
 	npm install babel-preset-es2015 babel-preset-react --save-dev
@@ -79,7 +79,7 @@ In this unit, you set up a development environment to develop and run an ECMAScr
      };
      ```
 	
-1. Open `package.json` in your favorite code editor. In the `scripts` section, remove the **test** script, and add a script named **webpack** that compiles app.js. The `scripts` section should now look like this:
+1. Open `package.json` in your favorite code editor. In the `scripts` section, remove the **test** script, and add a script named **webpack**. The `scripts` section should now look like this:
 
 	```
 	"scripts": {
@@ -95,7 +95,7 @@ In this unit, you set up a development environment to develop and run an ECMAScr
 1. On the command line, make sure you are in the `es6-tutorial-react` directory, and type the following command to run the **webpack** script and compile app.js:
 
 	```
-	 npm run webpack
+    npm run webpack
 	```
 
 1. Open **index.html** in your browser

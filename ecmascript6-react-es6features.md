@@ -17,7 +17,7 @@ layout: module
     };
     ```
     
-1. Modify all class functions to use the ECMAScript 6 syntax for class function definitions. Use the `render()` function below as an example:
+1. Modify all class functions to use the ECMAScript 6 syntax for class functions. Use the `render()` function below as an example:
 
     ```
     class Header extends React.Component {
@@ -33,7 +33,7 @@ layout: module
     };
     ```
 
-1. In MortgageCalculator, replace `getInitialState()` with a constructor:
+1. In MortgageCalculator, replace `getInitialState()` with a constructor and initialize the component's state:
 
     ```
     constructor(props) {
@@ -46,7 +46,7 @@ layout: module
     }
     ```
     
-1. In the `render()` function of the MortgageCalculator class, bind the call to the change event handlers as follow:
+1. In the `render()` function of the `MortgageCalculator` class, bind the call to the `onChange` event handlers as follow:
      
      ```
      <input type="text" value={this.state.principal} 
