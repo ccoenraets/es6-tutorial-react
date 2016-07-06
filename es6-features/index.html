@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/favicon.ico">
+    <title>Using ECMAScript 6 Features - ECMAScript 6 Tutorial</title>
+
+    
+    <link href="http://ccoenraets.github.io/es6-tutorial-react/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    
+    <link href="http://ccoenraets.github.io/es6-tutorial-react/css/microsite.css" rel="stylesheet">
+
+    
+    
+
+    
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-721308-2', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+    <link href="http://ccoenraets.github.io/es6-tutorial-react/prism/prism.css" rel="stylesheet" />
+</head>
+
+<body class="dreamhouse">
+
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://ccoenraets.github.io/es6-tutorial-react">ECMAScript 6 Tutorial</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a
+                        href="https://github.com/dreamhouseapp"><img
+                        src="http://ccoenraets.github.io/es6-tutorial-react/images/GitHub-Mark-32px.png" style="border: none;margin: -4px 0;height: 32px;width: 32px;"/>
+                    GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+<header class="sb-page-header">
+    <div class="container">
+        <h1>Using ECMAScript 6 Features</h1>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-9">
+            
+
+<h2 id="step-1-use-new-ecmascript-6-features">Step 1: Use New ECMAScript 6 Features</h2>
+
+<ol>
+<li><p>Open <code>js/app.js</code> in your favorite code editor</p></li>
+
+<li><p>Replace all <code>var</code> definitions with <code>let</code></p></li>
+
+<li><p>Replace all <code>React.createClass()</code> definitions with the new ECMAScript 6 class syntax. For example:</p>
+
+<pre><code class="language-javascript">class Header extends React.Component {
+    
+};
+</code></pre></li>
+
+<li><p>Modify all class functions to use the ECMAScript 6 syntax for class function definitions. Use the <code>render()</code> function below as an example:</p>
+
+<pre><code class="language-javascript">class Header extends React.Component {
+    
+    render() {
+        return (
+            &lt;header&gt;
+                &lt;h1&gt;{this.props.title}&lt;/h1&gt;
+            &lt;/header&gt;
+        )
+    }
+    
+};
+</code></pre></li>
+
+<li><p>In MortgageCalculator, replace <code>getInitialState()</code> with a constructor implemented as follows:</p>
+
+<pre><code class="language-javascript">constructor(props) {
+    super(props);
+    this.state = {
+        principal: this.props.principal,
+        years: this.props.years,
+        rate: this.props.rate
+    };
+}
+</code></pre></li>
+
+<li><p>In the <code>render()</code> function of the MortgageCalculator class, bind the call to the change event handlers as follows:</p>
+
+<pre><code class="language-html"> &lt;input type=&quot;text&quot; value={this.state.principal} 
+        onChange={this.principalChange.bind(this)}/&gt;
+</code></pre></li>
+
+<li><p>Replace all remaining <code>function()</code> definitions with arrow functions</p></li>
+
+<li><p>Use Object Destructuring syntax when appropriate</p></li>
+</ol>
+
+<h2 id="step-2-build-and-run">Step 2: Build and Run</h2>
+
+<ol>
+<li><p>Build the app:</p>
+
+<pre><code class="language-bash"> npm run webpack
+</code></pre></li>
+
+<li><p>Open <strong>index.html</strong> in your browser and test the application</p></li>
+</ol>
+
+<h2 id="solution">Solution</h2>
+
+<p>The final code for this step is available in <a href="https://github.com/ccoenraets/es6-tutorial-react/tree/step2">this branch</a>.</p>
+
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-default">
+    
+    
+        
+            <div class="panel-heading">Topics</div>
+            <div class="list-group">
+                
+                <a class="list-group-item" href="/es6-tutorial-react/setup/">Setting Up a React Project</a>
+                
+                <a class="list-group-item" href="/es6-tutorial-react/es6-features/">Using ECMAScript 6 Features</a>
+                
+                <a class="list-group-item" href="/es6-tutorial-react/modules/">Using Modules</a>
+                
+                <a class="list-group-item" href="/es6-tutorial-react/modules-more/">Creating the MortgageCalculator Module</a>
+                
+            </div>
+        
+    
+</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div style="margin-top: 6px">
+                <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://ccoenraets.github.io/es6-tutorial-react" data-text="React with ECMAScript 6 Tutorial by @ccoenraets #Babel #Webpack" data-size="large">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                <a href="https://twitter.com/ccoenraets" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @ccoenraets</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+            </div>
+            <div class="row" style="margin-top:20px;margin-bottom:20px">
+<div class="col-sm-12">
+
+
+    
+        
+        
+        
+            
+        
+            
+                
+                    
+                    
+                    <a href="/es6-tutorial-react/setup/" class="btn btn-default"><i class="glyphicon glyphicon-chevron-left"></i> Previous</a>
+                
+                
+                
+                    
+                    <a href="/es6-tutorial-react/modules/" class="btn btn-default pull-right">Next <i class="glyphicon glyphicon-chevron-right"></i></a>
+                
+            
+        
+            
+        
+            
+        
+    
+
+</div>
+</div>
+
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'es6reacttutorial';
+    var disqus_identifier = 'http:\/\/ccoenraets.github.io\/es6-tutorial-react\/es6-features\/';
+    var disqus_title = 'Using ECMAScript 6 Features';
+    var disqus_url = 'http:\/\/ccoenraets.github.io\/es6-tutorial-react\/es6-features\/';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <hr style="margin-top:30px;background: #EBEEEF"/>
+            <footer style="margin-top:20px;">
+                <p>Written by Christophe Coenraets (<a href="https://twitter.com/ccoenraets">@ccoenraets</a>), Developer Evangelist at <a href="http://developer.salesforce.com">Salesforce</a>.</p>
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://ccoenraets.github.io/es6-tutorial-react/prism/prism.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://ccoenraets.github.io/es6-tutorial-react/</loc>
+    <lastmod>2016-04-22T22:26:03-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ccoenraets.github.io/es6-tutorial-react/modules-more/</loc>
+    <lastmod>2016-04-22T22:26:03-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ccoenraets.github.io/es6-tutorial-react/setup/</loc>
+    <lastmod>2016-04-22T22:26:03-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ccoenraets.github.io/es6-tutorial-react/es6-features/</loc>
+    <lastmod>2016-04-22T22:26:03-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://ccoenraets.github.io/es6-tutorial-react/modules/</loc>
+    <lastmod>2016-04-22T22:26:03-04:00</lastmod>
+  </url>
+  
+</urlset>

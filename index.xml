@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ECMAScript 6 Tutorial</title>
+    <link>http://ccoenraets.github.io/es6-tutorial-react/</link>
+    <description>Recent content on ECMAScript 6 Tutorial</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 22 Apr 2016 22:26:03 -0400</lastBuildDate>
+    <atom:link href="http://ccoenraets.github.io/es6-tutorial-react/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Creating the MortgageCalculator Module</title>
+      <link>http://ccoenraets.github.io/es6-tutorial-react/modules-more/</link>
+      <pubDate>Fri, 22 Apr 2016 22:26:03 -0400</pubDate>
+      
+      <guid>http://ccoenraets.github.io/es6-tutorial-react/modules-more/</guid>
+      <description>
+
+&lt;p&gt;In this unit, you create the MortgageCalculator module as well as the modules it depends on.&lt;/p&gt;
+
+&lt;h2 id=&#34;step-1-create-the-mortgage-module&#34;&gt;Step 1: Create the mortgage Module&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Create a new file named &lt;code&gt;mortgage.js&lt;/code&gt; in the &lt;code&gt;js&lt;/code&gt; directory.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Move the &lt;code&gt;calculatePayment()&lt;/code&gt; function from &lt;code&gt;app.js&lt;/code&gt; into &lt;code&gt;mortgage.js&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Add &lt;code&gt;export&lt;/code&gt; in front of the function definition to make it available as part of the module public API:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export let calculatePayment = (principal, years, rate) =&amp;gt; {
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;step-2-create-the-amortizationchart-module&#34;&gt;Step 2: Create the AmortizationChart Module&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Create a new file named &lt;code&gt;AmortizationChart.js&lt;/code&gt; in the &lt;code&gt;js&lt;/code&gt; directory.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Import the react module:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React from &#39;react&#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Move the &lt;code&gt;AmortizationChart&lt;/code&gt; class definition from &lt;code&gt;app.js&lt;/code&gt; into &lt;code&gt;AmortizationChart.js&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;At the bottom of the file, export the class as the default export:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export default AmortizationChart;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;step-3-create-the-mortgagecalculator-module&#34;&gt;Step 3: Create the MortgageCalculator Module&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Create a new file named &lt;code&gt;MortgageCalculator.js&lt;/code&gt; in the &lt;code&gt;js&lt;/code&gt; directory.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Add the following import statements at the top of the file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React from &#39;react&#39;;
+import AmortizationChart from &#39;./AmortizationChart&#39;;
+import * as mortgage from &#39;./mortgage&#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Move the &lt;code&gt;MortgageCalculator&lt;/code&gt; class definition from &lt;code&gt;app.js&lt;/code&gt; into &lt;code&gt;MortgageCalculator.js&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In the &lt;code&gt;render()&lt;/code&gt; function, change &lt;code&gt;calculatePayment()&lt;/code&gt; to &lt;code&gt;mortgage.calculatePayment()&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;At the bottom of the file, export the class as the default export:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export default MortgageCalculator;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open &lt;code&gt;app.js&lt;/code&gt; and add an import statement for the MortgageCalculator module:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import MortgageCalculator from &#39;./MortgageCalculator&#39;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;app.js&lt;/code&gt; should now look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React from &#39;react&#39;;
+import ReactDOM from &#39;react-dom&#39;;
+import Header from &#39;./Header&#39;;
+import MortgageCalculator from &#39;./MortgageCalculator&#39;;
+    
+class App extends React.Component {
+    
+    render() {
+        return (
+            &amp;lt;div&amp;gt;
+                &amp;lt;Header title=&amp;quot;React ES6 Mortgage Calculator&amp;quot;/&amp;gt;
+                &amp;lt;MortgageCalculator principal=&amp;quot;200000&amp;quot; years=&amp;quot;30&amp;quot; rate=&amp;quot;5&amp;quot;/&amp;gt;
+            &amp;lt;/div&amp;gt;
+        );
+    }
+    
+};
+    
+ReactDOM.render(&amp;lt;App/&amp;gt;, document.getElementById(&amp;quot;app&amp;quot;));
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;step-3-build-and-run&#34;&gt;Step 3: Build and Run&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Build the application:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm run webpack
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open &lt;strong&gt;index.html&lt;/strong&gt; in your browser and test the application&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;The final code for this step is available in &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-react/tree/step4&#34;&gt;this branch&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Setting Up a React Project</title>
+      <link>http://ccoenraets.github.io/es6-tutorial-react/setup/</link>
+      <pubDate>Fri, 22 Apr 2016 22:26:03 -0400</pubDate>
+      
+      <guid>http://ccoenraets.github.io/es6-tutorial-react/setup/</guid>
+      <description>
+
+&lt;p&gt;In this unit, you set up a development environment to develop and run an ECMAScript 6 application using Babel and Webpack.&lt;/p&gt;
+
+&lt;h2 id=&#34;step-1-install-the-sample-application&#34;&gt;Step 1: Install the Sample Application&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Clone the &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-react/&#34;&gt;es6-tutorial-react&lt;/a&gt; repository:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/ccoenraets/es6-tutorial-react
+&lt;/code&gt;&lt;/pre&gt;
+
+
+    
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+    Alternatively, you can just download and unzip &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-react/archive/master.zip&#34;&gt;this file&lt;/a&gt; instead of cloning the repository.
+&lt;/div&gt;
+
+
+    
+&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open &lt;code&gt;app.js&lt;/code&gt; and examine the React implementation of the mortgage calculator application. This version of the application is written with ECMAScript 5.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;step-2-set-up-babel-and-webpack&#34;&gt;Step 2: Set Up Babel and Webpack&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Open a command prompt, and navigate (&lt;code&gt;cd&lt;/code&gt;) to the &lt;code&gt;es6-tutorial-react&lt;/code&gt; directory.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type the following command to create a &lt;code&gt;package.json&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm init
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Press the &lt;strong&gt;Return&lt;/strong&gt; key in response to all the questions to accept the default values.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type the following command to install the &lt;strong&gt;react&lt;/strong&gt; and &lt;strong&gt;react-dom&lt;/strong&gt; modules:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install react react-dom --save-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type the following command to install the babel and webpack modules:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install babel-core babel-loader webpack --save-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Type the following command to install the ECMAScript 2015 and React presets:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm install babel-preset-es2015 babel-preset-react --save-dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In the &lt;code&gt;es6-tutorial-react&lt;/code&gt; directory, create a new file named &lt;code&gt;webpack.config.js&lt;/code&gt; defined as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt; var path = require(&#39;path&#39;);
+ var webpack = require(&#39;webpack&#39;);
+     
+ module.exports = {
+     entry: &#39;./js/app.js&#39;,
+     output: {
+         path: path.resolve(__dirname, &#39;build&#39;),
+         filename: &#39;app.bundle.js&#39;
+     },
+     module: {
+         loaders: [
+             {
+                 test: /\.js$/,
+                 loader: &#39;babel-loader&#39;,
+                 query: {
+                     presets: [&#39;es2015&#39;, &#39;react&#39;]
+                 }
+             }
+         ]
+     },
+     stats: {
+         colors: true
+     },
+     devtool: &#39;source-map&#39;
+ };
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open &lt;code&gt;package.json&lt;/code&gt; in your favorite code editor. In the &lt;code&gt;scripts&lt;/code&gt; section, remove the &lt;strong&gt;test&lt;/strong&gt; script, and add a script named &lt;strong&gt;webpack&lt;/strong&gt; that compiles app.js. The &lt;code&gt;scripts&lt;/code&gt; section should now look like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;&amp;quot;scripts&amp;quot;: {
+    &amp;quot;webpack&amp;quot;: &amp;quot;webpack&amp;quot;
+},
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In the &lt;code&gt;es6-tutorial-react&lt;/code&gt; directory, create a &lt;code&gt;build&lt;/code&gt; directory to host the compiled version of the application.&lt;/p&gt;
+
+
+    
+
+
+&lt;div class=&#34;alert alert-info&#34; role=&#34;alert&#34;&gt;
+    The build process will fail if you don&amp;rsquo;t create the build directory
+&lt;/div&gt;
+
+
+    
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;step-3-build-and-run&#34;&gt;Step 3: Build and Run&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;On the command line, make sure you are in the &lt;code&gt;es6-tutorial-react&lt;/code&gt; directory, and type the following command to run the &lt;strong&gt;webpack&lt;/strong&gt; script and compile app.js:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt; npm run webpack
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open &lt;strong&gt;index.html&lt;/strong&gt; in your browser and test the application&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&#34;../images/calc.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using ECMAScript 6 Features</title>
+      <link>http://ccoenraets.github.io/es6-tutorial-react/es6-features/</link>
+      <pubDate>Fri, 22 Apr 2016 22:26:03 -0400</pubDate>
+      
+      <guid>http://ccoenraets.github.io/es6-tutorial-react/es6-features/</guid>
+      <description>
+
+&lt;h2 id=&#34;step-1-use-new-ecmascript-6-features&#34;&gt;Step 1: Use New ECMAScript 6 Features&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Open &lt;code&gt;js/app.js&lt;/code&gt; in your favorite code editor&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Replace all &lt;code&gt;var&lt;/code&gt; definitions with &lt;code&gt;let&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Replace all &lt;code&gt;React.createClass()&lt;/code&gt; definitions with the new ECMAScript 6 class syntax. For example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;class Header extends React.Component {
+    
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Modify all class functions to use the ECMAScript 6 syntax for class function definitions. Use the &lt;code&gt;render()&lt;/code&gt; function below as an example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;class Header extends React.Component {
+    
+    render() {
+        return (
+            &amp;lt;header&amp;gt;
+                &amp;lt;h1&amp;gt;{this.props.title}&amp;lt;/h1&amp;gt;
+            &amp;lt;/header&amp;gt;
+        )
+    }
+    
+};
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In MortgageCalculator, replace &lt;code&gt;getInitialState()&lt;/code&gt; with a constructor implemented as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;constructor(props) {
+    super(props);
+    this.state = {
+        principal: this.props.principal,
+        years: this.props.years,
+        rate: this.props.rate
+    };
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;In the &lt;code&gt;render()&lt;/code&gt; function of the MortgageCalculator class, bind the call to the change event handlers as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-html&#34;&gt; &amp;lt;input type=&amp;quot;text&amp;quot; value={this.state.principal} 
+        onChange={this.principalChange.bind(this)}/&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Replace all remaining &lt;code&gt;function()&lt;/code&gt; definitions with arrow functions&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Use Object Destructuring syntax when appropriate&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;step-2-build-and-run&#34;&gt;Step 2: Build and Run&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Build the app:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt; npm run webpack
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open &lt;strong&gt;index.html&lt;/strong&gt; in your browser and test the application&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;The final code for this step is available in &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-react/tree/step2&#34;&gt;this branch&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using Modules</title>
+      <link>http://ccoenraets.github.io/es6-tutorial-react/modules/</link>
+      <pubDate>Fri, 22 Apr 2016 22:26:03 -0400</pubDate>
+      
+      <guid>http://ccoenraets.github.io/es6-tutorial-react/modules/</guid>
+      <description>
+
+&lt;p&gt;In this unit, you externalize the Application Header in an ECMAScript 6 module.&lt;/p&gt;
+
+&lt;h2 id=&#34;step-1-create-the-header-module&#34;&gt;Step 1: Create the Header Module&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Create a new file named &lt;code&gt;Header.js&lt;/code&gt; in the &lt;code&gt;js&lt;/code&gt; directory.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Import the &lt;code&gt;react&lt;/code&gt; module:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import React from &#39;react&#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Move the &lt;code&gt;Header&lt;/code&gt; class definition from &lt;code&gt;app.js&lt;/code&gt; into &lt;code&gt;Header.js&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;At the bottom of the file, export the class as the default export:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;export default Header;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;step-2-use-the-header-module&#34;&gt;Step 2: Use the Header Module&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;In &lt;code&gt;app.js&lt;/code&gt; make sure you removed the &lt;code&gt;Header&lt;/code&gt; class definition&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Add an &lt;code&gt;import&lt;/code&gt; statement at the top of the file to import the newly created Header module:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;import Header from &#39;./Header&#39;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;step-3-build-and-run&#34;&gt;Step 3: Build and Run&lt;/h2&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Build the app:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;npm run webpack
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open &lt;strong&gt;index.html&lt;/strong&gt; in your browser and test the application&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;solution&#34;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;The final code for this step is available in &lt;a href=&#34;https://github.com/ccoenraets/es6-tutorial-react/tree/step3&#34;&gt;this branch&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
